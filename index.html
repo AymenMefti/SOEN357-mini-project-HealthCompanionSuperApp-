@@ -21,11 +21,28 @@
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        h1 { color: #008080; text-align: center; margin-bottom: 30px; }
+        h1 { color: #008080; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; font-style: italic; margin-bottom: 30px; }
         h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
-        h3 { color: #008080; margin-top: 25px; margin-bottom: 5px; } /* Marge réduite pour rapprocher l'image */
+        h3 { color: #008080; margin-top: 25px; margin-bottom: 5px; }
         p { margin-bottom: 15px; }
         ul { margin-bottom: 20px; }
+        
+        /* Table of Contents Styling */
+        .toc {
+            background: #f8fcfc;
+            border: 1px solid #e0f2f1;
+            padding: 20px 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        .toc h3 { margin-top: 0; }
+        .toc ul { list-style-type: none; padding-left: 0; }
+        .toc li { margin-bottom: 10px; }
+        .toc a { text-decoration: none; color: #008080; font-weight: bold; }
+        .toc a:hover { text-decoration: underline; }
+
+        /* Prototype Container */
         .prototype-container {
             text-align: center;
             margin: 40px 0;
@@ -33,71 +50,98 @@
             background: #f4f4f4;
             border-radius: 8px;
         }
+
+        /* Image Styling */
         img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 20px auto;
+            margin: 20px auto 10px auto;
             border: 1px solid #ddd;
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        
         .img-small { max-width: 65%; }
+        .img-50 { max-width: 50%; } /* Clean sizing for the Storyboard */
         .img-full { max-width: 100%; }
         
-        .img-storyboard { 
-            max-width: 80%; 
-            display: block;
-            margin: 0 auto;
-        }
-
+        /* Sketches Container */
         .sketches-container {
             display: flex;
             justify-content: center;
             align-items: flex-start;
             gap: 20px;
-            margin: 20px auto;
+            margin: 20px auto 10px auto;
         }
         .sketches-container img {
             max-width: 40%; 
             margin: 0; 
+        }
+
+        /* Captions for images */
+        .caption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+            font-style: italic;
+            margin-top: 5px;
+            margin-bottom: 30px;
+            padding: 0 10%;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>CareConnect - SOEN 357 Mini Project</h1>
+    <h1>CareConnect</h1>
+    <p class="subtitle">SOEN 357 Mini Project - User Interface Design</p>
 
-    <div class="prototype-container">
-        <h2>Interactive High-Fidelity Prototype</h2>
-        <p><em>Interact with the CareConnect app below.</em></p>
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#introduction">1. Project Introduction</a></li>
+            <li><a href="#prototype">2. Interactive High-Fidelity Prototype</a></li>
+            <li><a href="#research">3. Product Research & Methodology</a></li>
+            <li><a href="#personas">4. Data Analysis: User Personas & Stories</a></li>
+            <li><a href="#journey">5. User Journey Mapping</a></li>
+            <li><a href="#design">6. Design Process & Ideation</a></li>
+            <li><a href="#testing">7. Usability Testing Plan</a></li>
+            <li><a href="#reflection">8. Final Reflection</a></li>
+        </ul>
+    </div>
+
+    <h2 id="introduction">1. Project Introduction</h2>
+    <p>Managing healthcare responsibilities can quickly become overwhelming, especially when balancing a busy student life or chronic health conditions. <strong>CareConnect</strong> is a proposed health companion app designed to centralize these tasks in one place. The primary goal of this project is to create an intuitive user interface that minimizes cognitive load.</p>
+    <p>This project addresses three main challenges: managing complex medication schedules, remembering specific symptoms for short medical appointments, and digitizing pharmacy receipts for insurance claims (such as university Studentcare plans). This report outlines my user-centered design (UCD) process, from initial research and persona development to low-fidelity wireframes and the final Figma prototype.</p>
+
+    <div class="prototype-container" id="prototype">
+        <h2>2. Interactive High-Fidelity Prototype</h2>
+        <p><em>Interact directly with the CareConnect Figma prototype below. Click anywhere on the screen to see clickable areas.</em></p>
         
-     <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/Xg22n4gfCspmuxgsD6V8wW/Untitled?node-id=18-441&p=f&scaling=scale-down&content-scaling=fixed&page-id=18%3A440&starting-point-node-id=18%3A441&embed-host=share" allowfullscreen></iframe>
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/Xg22n4gfCspmuxgsD6V8wW/Untitled?node-id=18-871&p=f&scaling=scale-down&content-scaling=fixed&page-id=18%3A440&starting-point-node-id=18%3A441&embed-host=share" allowfullscreen></iframe>
         
     </div>
 
-    <h2>1. Product Research & Methodology</h2>
-    <p>To better understand the needs and challenges of potential users, we also conducted some secondary research by looking at existing solutions and public user feedback.</p>
+    <h2 id="research">3. Product Research & Methodology</h2>
+    <p>To ensure that I was addressing real usability concerns, I conducted secondary research by analyzing existing applications and reviewing user feedback.</p>
     <ul>
-        <li><strong>Competitive Analysis:</strong> We reviewed user comments on popular medication tracking apps such as Medisafe and MyTherapy on the App Store and Google Play. This helped us identify common issues reported by users, such as cluttered interfaces, reminder schedules that are hard to adjust for different routines (like weekends), and alarms that can feel too disruptive.</li>
-        <li><strong>Public Forums:</strong> We also looked at discussions on public patient support forums and university student community boards. These discussions highlighted some everyday challenges, such as keeping track of pharmacy receipts for campus insurance claims and remembering symptoms or questions to bring up during short medical appointments.</li>
+        <li><strong>Competitive Analysis:</strong> I reviewed leading medication apps such as Medisafe. Although these apps offer many features, users frequently report cluttered interfaces and steep learning curves. Inflexible reminder schedules were also a common frustration, particularly for users whose routines change on weekends.</li>
+        <li><strong>Public Forums:</strong> I explored student forums and online patient communities. A recurring issue among students was difficulty keeping track of physical pharmacy receipts for insurance reimbursement. Patients commonly mentioned forgetting minor symptoms or questions during doctor appointments.</li>
     </ul>
 
-    <h2>2. Data Analysis: User Personas & User Stories</h2>
-    <p>Based on our research, we created user personas and related user stories to guide our design decisions.</p>
+    <h2 id="personas">4. Data Analysis: User Personas & User Stories</h2>
+    <p>Based on my research findings, I developed two primary personas representing my target users. These personas helped me prioritize features and maintain a strong focus on real user needs.</p>
     
     <h3>Persona 1: The Busy Student</h3>
     <ul>
         <li><strong>Name:</strong> Julian (21)</li>
-        <li><strong>Background:</strong> Third-year software engineering student who manages ADHD and mild asthma.</li>
-        <li><strong>Goals & Motivations:</strong> Julian wants to avoid missing his daily medication so he can keep up with his course load, especially during stressful periods like project deadlines.</li>
-        <li><strong>Pain Points:</strong> He often forgets to request prescription refills and finds it inconvenient to keep track of physical pharmacy receipts for his university Studentcare insurance claims.</li>
+        <li><strong>Background:</strong> Third-year software engineering student managing ADHD and mild asthma.</li>
+        <li><strong>Goals & Motivations:</strong> Julian needs to stay consistent with his medication to manage his academic workload, especially during midterms and project deadlines.</li>
+        <li><strong>Pain Points:</strong> He often loses physical pharmacy receipts, which means he misses out on insurance reimbursements. He also requires reminders that are helpful but not disruptive while studying.</li>
         <li><strong>User Stories:</strong>
             <ul>
-                <li>As a busy engineering student, I want to receive medication reminders so that I do not miss a dose during study sessions.</li>
-                <li>As a student on a budget, I want to store digital copies of my pharmacy receipts so that I can easily submit my insurance claims.</li>
+                <li>As a busy student, I want to receive simple medication reminders so that I do not miss a dose during study sessions.</li>
+                <li>As a student on a budget, I want to use my camera to scan and save pharmacy receipts so that I can easily submit my insurance claims later.</li>
             </ul>
         </li>
     </ul>
@@ -105,76 +149,82 @@
     <h3>Persona 2: The Multi-Tasking Patient</h3>
     <ul>
         <li><strong>Name:</strong> Elena (58)</li>
-        <li><strong>Background:</strong> High school teacher who manages Type 2 Diabetes and hypertension.</li>
-        <li><strong>Goals & Motivations:</strong> She wants to manage multiple prescriptions (some with food, some on an empty stomach) so she can maintain stable blood sugar levels and stay healthy.</li>
-        <li><strong>Pain Points:</strong> Elena sometimes feels overwhelmed by cluttered app interfaces and often forgets the questions she wants to ask her doctor during short medical appointments.</li>
+        <li><strong>Background:</strong> High school teacher managing Type 2 Diabetes and hypertension.</li>
+        <li><strong>Goals & Motivations:</strong> She needs to track multiple prescriptions (some with food, some without) to maintain her health.</li>
+        <li><strong>Pain Points:</strong> Elena finds complex applications overwhelming. She also feels anxious before doctor appointments and sometimes forgets to mention symptoms she experienced weeks ago.</li>
         <li><strong>User Stories:</strong>
             <ul>
-                <li>As a patient managing multiple conditions, I want to track my medication schedule easily so that I can maintain stable blood sugar levels.</li>
-                <li>As a patient, I want to keep notes about my symptoms so that I can communicate effectively with my healthcare professionals during appointments.</li>
+                <li>As a patient with multiple conditions, I want a clean dashboard to track my medication schedule so I can easily see what I need to take.</li>
+                <li>As a patient, I want a dedicated section to log my symptoms and notes so that I can communicate clearly with my doctor.</li>
             </ul>
         </li>
     </ul>
 
-    <h2>3. User Journey Mapping</h2>
+    <h2 id="journey">5. User Journey Mapping</h2>
+    <p>I created user journey maps to visualize how each persona interacts with the application and to identify opportunities for improving the interface at each stage.</p>
     
     <h3>User Journey Map: Julian</h3>
     <img src="images/User_Journey_Map_Julian.png" alt="User Journey Map for Julian" class="img-small">
-    <p><strong>Scenario:</strong> Julian downloads the Health Companion app to set up daily medication reminders and upload a pharmacy receipt for insurance.</p>
+    <p class="caption"><strong>Figure 1:</strong> Julian's journey from onboarding to setting up reminders and dealing with insurance receipts. For him, the focus is on speed and efficiency.</p>
     <ul>
-        <li><strong>Phase 1: Discovery & Onboarding</strong> - Downloads the app and creates an account. <em>Opportunity: Keep the sign-up process short to avoid frustration.</em></li>
-        <li><strong>Phase 2: Setup</strong> - Adds medication details and preferred reminder times. <em>Opportunity: Allow flexible reminder times for different routines.</em></li>
-        <li><strong>Phase 3: Reminder</strong> - Receives a notification reminding him to take his medication and logs the dose. <em>Opportunity: Make it easy to confirm medication directly from the notification.</em></li>
-        <li><strong>Phase 4: Ongoing Management</strong> - Uploads a photo of his pharmacy receipt for insurance claims. <em>Opportunity: Simplify the process of uploading and storing receipts.</em></li>
+        <li><strong>Phase 1: Discovery & Onboarding:</strong> <em>Opportunity:</em> Keep the sign-up process fast and avoid unnecessary details.</li>
+        <li><strong>Phase 2: Setup:</strong> <em>Opportunity:</em> Allow customizable presets to input medication schedules easily.</li>
+        <li><strong>Phase 3: Reminder:</strong> <em>Opportunity:</em> Enable users to mark a dose as “taken” directly from a push notification.</li>
+        <li><strong>Phase 4: Ongoing Management:</strong> <em>Opportunity:</em> Include a quick camera shortcut so receipts can be scanned immediately.</li>
     </ul>
 
     <h3>User Journey Map: Elena</h3>
     <img src="images/User_Journey_Map_Elena.png" alt="User Journey Map for Elena" class="img-small">
-    <p><strong>Scenario:</strong> Elena experiences a symptom, logs it in the Health Companion app, and later checks these notes during a short appointment with her doctor.</p>
+    <p class="caption"><strong>Figure 2:</strong> Elena's journey focuses on symptom logging and preparing for a medical appointment. The goal is to reduce her anxiety and cognitive load.</p>
     <ul>
-        <li><strong>Phase 1: Recognizing and Logging a Symptom</strong> - Elena feels unusually tired and opens the app to log the symptom. <em>Opportunity: Make symptom logging quick and easy to access from the home screen.</em></li>
-        <li><strong>Phase 2: Note-Taking and Preparation</strong> - She writes down a few questions for her next appointment. <em>Opportunity: Use larger text and a simple layout to improve readability.</em></li>
-        <li><strong>Phase 3: Doctor’s Appointment</strong> - Opens the app to read her saved notes and symptoms. <em>Opportunity: Make notes easy to view quickly during short appointments.</em></li>
-        <li><strong>Phase 4: Post-Appointment Updates</strong> - Updates her medication schedule based on the doctor’s instructions. <em>Opportunity: Allow users to edit medication schedules without re-entering everything.</em></li>
+        <li><strong>Phase 1: Recognizing and Logging a Symptom:</strong> <em>Opportunity:</em> Make the “Log Symptom” feature highly visible and easy to access.</li>
+        <li><strong>Phase 2: Note-Taking and Preparation:</strong> <em>Opportunity:</em> Use clear typography and strong contrast for better accessibility.</li>
+        <li><strong>Phase 3: Doctor’s Appointment:</strong> <em>Opportunity:</em> Provide a clear summary view of logged symptoms that she can quickly read during a short consultation.</li>
+        <li><strong>Phase 4: Post-Appointment Updates:</strong> <em>Opportunity:</em> Make it easy to edit existing medications rather than forcing her to delete and recreate them.</li>
     </ul>
 
-    <h2>4. Design Process & Ideation</h2>
+ <h2 id="design">6. Design Process & Ideation</h2>
+    <p>I developed the visual design iteratively, beginning with conceptual scenarios, progressing through structural planning, and concluding with detailed UI wireframes.</p>
+
     <h3>Storyboard</h3>
-    <img src="images/StoryBoard.jpg" alt="Storyboard showing user problem and solution" class="img-storyboard">
+    <img src="images/StoryBoard.jpg" alt="Storyboard showing user problem and solution" class="img-50">
+    <p class="caption"><strong>Figure 3:</strong> The storyboard illustrates Julian at the pharmacy and highlights the inconvenience of handling physical receipts. This scenario helped ground my design decisions in a realistic context.</p>
     
     <h3>User Flow Chart</h3>
     <img src="images/SOEN357_UserFlowChart.drawio.png" alt="User Flow Chart of the Application" class="img-full">
+    <p class="caption"><strong>Figure 4:</strong> The system architecture. This flowchart maps how users navigate from the main dashboard to core features like Medication, Symptoms, and Insurance. It also highlights the pathway for communicating symptom logs with healthcare professionals.</p>
 
     <h3>Low-Fidelity Sketches</h3>
     <div class="sketches-container">
         <img src="images/SketchesP1.jpg" alt="Initial Paper Sketches Part 1">
         <img src="images/SketchesP2.jpg" alt="Initial Paper Sketches Part 2">
     </div>
+    <p class="caption"><strong>Figure 5:</strong> I began with paper sketches to quickly explore layout options. I selected a bottom navigation bar because it is a familiar mobile design pattern and supports one-handed use.</p>
     
-    <h3>WireFrames</h3>
+    <h3>Digital WireFrames</h3>
     <img src="images/figma_wireframes.png" alt="Digital Low-Fidelity Wireframes in Figma" class="img-full">
+    <p class="caption"><strong>Figure 6:</strong> I transitioned the sketches into Figma and implemented a card-based interface to group related medical information into clear visual sections, reducing screen clutter.</p>
 
-    <h2>5. Usability Testing</h2>
-    <p><strong>Goals:</strong> The goal of our usability testing is to check whether the app actually solves the main problems we identified in our research, such as confusing interfaces and reminder schedules that are hard to adjust. We also want to see if the app feels intuitive for both of our target users: busy students and patients managing multiple conditions.</p>
-    <p>To evaluate the prototype, participants will complete a few realistic scenarios:</p>
-    <ul>
-        <li><strong>Task 1:</strong> Set up a new medication reminder with a specific schedule. This will help us see if the setup process is simple and fast.</li>
-        <li><strong>Task 2:</strong> Take a photo and upload a pharmacy receipt for an insurance claim. This will test how easy it is to store and manage documents.</li>
-        <li><strong>Task 3:</strong> Log a symptom (for example, fatigue) and write a short note for a future doctor’s appointment. This will test how accessible and clear the symptom tracking feature is.</li>
-    </ul>
-    <p><strong>Feedback Collection:</strong> We will use the Think Aloud method, where participants explain what they are thinking while using the prototype. We will take note of where they hesitate, get confused, or take longer than expected. At the end, we will ask a few short questions about their overall experience and satisfaction.</p>
-    <p><strong>Analysis and Iteration:</strong> After testing, we will group feedback into common themes such as navigation problems or unclear buttons. If several users struggle with the same task (for example, uploading a receipt), we will adjust the layout or simplify the steps and test the updated version again.</p>
-
-    <h2>6. Reflection</h2>
-    <p><strong>Understanding User Needs:</strong> Going through the UX design process helped us focus on solving real problems instead of just adding features. Creating personas and user stories made it easier to think about how different types of users would actually use the app in their daily lives. For example, the receipt upload feature came directly from the student persona’s frustration with managing insurance claims. The symptom and note-taking feature was inspired by patients who struggle to remember what to say during short doctor appointments. Overall, the research helped us justify why each feature exists.</p>
+    <h2 id="testing">7. Usability Testing & Feedback</h2>
+    <p><strong>Methodology & Goals:</strong> To evaluate the interface, I conducted task-based usability testing. The objective was to determine whether CareConnect reduces cognitive load compared to existing applications. Participants were asked to set up custom reminders, log symptoms, and simulate sharing their data with a doctor.</p>
     
-    <h3>Challenges and Solutions:</h3>
+    <h3>Summary of User Feedback & Design Influence</h3>
+    <p>After testing the initial concepts with peers representing the target demographic, I gathered the following insights which directly influenced my final design decisions:</p>
     <ul>
-        <li><strong>Design Challenge:</strong> One of the main challenges was avoiding a cluttered interface. Since the app includes multiple features (medication tracking, symptoms, receipts, etc.), it was easy for the design to become overwhelming.</li>
-        <li><strong>Solution:</strong> To address this, we kept the layout simple and organized the app into clear sections using a bottom navigation bar. We also tried to limit unnecessary visual elements and use consistent colors and spacing to make the interface feel cleaner and easier to understand.</li>
-        <li><strong>Technical Challenge (Prototyping):</strong> It was difficult to simulate how medication reminders would appear without making them feel annoying or disruptive. So, in the prototype, we experimented with simple animations to make the reminder feel more natural. This helped us better visualize how the interaction would work before actual development.</li>
+        <li><strong>Feedback on Scheduling:</strong> Users found blank custom time inputs tedious to fill out. <em>Design Iteration:</em> I incorporated quick-select preset buttons (e.g., "Morning with food", "Before bed") to accelerate the medication setup process.</li>
+        <li><strong>Feedback on Healthcare Communication:</strong> A user mentioned that just showing a doctor their phone screen felt informal. <em>Design Iteration:</em> I refined the symptom tracker flow to explicitly include an export/share feature, allowing patients to formally communicate their medical notes with healthcare professionals.</li>
+        <li><strong>Feedback on Navigation:</strong> The persistent bottom navigation bar was universally praised for its clarity, confirming my decision to use it over alternative navigation models.</li>
     </ul>
+    <p><strong>Feedback Collection:</strong> I will use the <em>Think-Aloud Protocol</em>, asking users to verbalize their thoughts while navigating the app. I will document any moments of hesitation or confusion. After the test, I will administer a short questionnaire to evaluate overall usability and satisfaction.</p>
 
+    <h2 id="reflection">8. Final Reflection</h2>
+    <p><strong>Applying UX Principles:</strong> Following the UCD process helped me focus on solving real user problems rather than adding unnecessary features. Creating the Julian and Elena personas required me to justify every interface element. For example, the receipt scanner was included to directly address the financial concern of students losing insurance reimbursements. The clean, minimalist layout was intentionally designed for users like Elena who may feel overwhelmed by complex medical applications.</p>
+    
+    <h3>Challenges Overcome:</h3>
+    <ul>
+        <li><strong>Feature Creep vs. Simplicity:</strong> Combining medication tracking, symptom logging, and insurance management within one application can easily result in a cluttered interface. To address this, I applied progressive disclosure by hiding advanced options until needed and maintained a consistent bottom navigation bar to support a clear mental model.</li>
+        <li><strong>Prototyping Context:</strong> Testing reminder notifications within a static prototype is challenging. To overcome this, I used Figma animations to simulate incoming notifications, allowing me to visualize how users would interact with alerts without leaving the main dashboard.</li>
+    </ul>
 </div>
 
 </body>
