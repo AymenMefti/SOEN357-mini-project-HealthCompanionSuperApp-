@@ -23,7 +23,7 @@
         }
         h1 { color: #008080; text-align: center; margin-bottom: 30px; }
         h2 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; }
-        h3 { color: #008080; margin-top: 25px; }
+        h3 { color: #008080; margin-top: 25px; margin-bottom: 5px; } /* Marge réduite pour rapprocher l'image */
         p { margin-bottom: 15px; }
         ul { margin-bottom: 20px; }
         .prototype-container {
@@ -42,8 +42,28 @@
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .rotate-90 { transform: rotate(90deg); }
+        
+        .rotate-270 { transform: rotate(270deg); }
         .img-small { max-width: 65%; }
+        .img-full { max-width: 100%; }
+        
+        .img-storyboard { 
+            max-width: 40%; 
+            margin-top: 5px; 
+            margin-bottom: 20px;
+        }
+
+        .sketches-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            margin: 20px auto;
+        }
+        .sketches-container img {
+            max-width: 40%; 
+            margin: 0; 
+        }
     </style>
 </head>
 <body>
@@ -55,7 +75,7 @@
         <h2>Interactive High-Fidelity Prototype</h2>
         <p><em>Interact with the CareConnect app below.</em></p>
         
-       <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/Xg22n4gfCspmuxgsD6V8wW/Untitled?node-id=18-871&p=f&scaling=scale-down&content-scaling=fixed&page-id=18%3A440&starting-point-node-id=18%3A441&embed-host=share" allowfullscreen></iframe>
+        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/Xg22n4gfCspmuxgsD6V8wW/Untitled?node-id=18-441&p=f&scaling=scale-down&content-scaling=fixed&page-id=18%3A440&starting-point-node-id=18%3A441&embed-host=share" allowfullscreen></iframe>
         
     </div>
 
@@ -121,17 +141,19 @@
 
     <h2>4. Design Process & Ideation</h2>
     <h3>Storyboard</h3>
-    <img src="images/StoryBoard.jpg" alt="Storyboard showing user problem and solution"class="rotate-90 img-small">
+    <img src="images/StoryBoard.jpg" alt="Storyboard showing user problem and solution" class="rotate-270 img-storyboard">
     
     <h3>User Flow Chart</h3>
-    <img src="images/SOEN357_UserFlowChart.drawio.png" alt="User Flow Chart of the Application" class="img-small">
+    <img src="images/SOEN357_UserFlowChart.drawio.png" alt="User Flow Chart of the Application" class="img-full">
 
     <h3>Low-Fidelity Sketches</h3>
-    <img src="images/SketchesP1.jpg" alt="Initial Paper Sketches Part 1" class="img-small">
-    <img src="images/SketchesP2.jpg" alt="Initial Paper Sketches Part 2" class="img-small">
+    <div class="sketches-container">
+        <img src="images/SketchesP1.jpg" alt="Initial Paper Sketches Part 1">
+        <img src="images/SketchesP2.jpg" alt="Initial Paper Sketches Part 2">
+    </div>
     
     <h3>WireFrames</h3>
-    <img src="images/figma_wireframes.png" alt="Digital Low-Fidelity Wireframes in Figma">
+    <img src="images/figma_wireframes.png" alt="Digital Low-Fidelity Wireframes in Figma" class="img-full">
 
     <h2>5. Usability Testing</h2>
     <p><strong>Goals:</strong> The goal of our usability testing is to check whether the app actually solves the main problems we identified in our research, such as confusing interfaces and reminder schedules that are hard to adjust. We also want to see if the app feels intuitive for both of our target users: busy students and patients managing multiple conditions.</p>
